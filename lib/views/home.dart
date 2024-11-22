@@ -1,16 +1,15 @@
 
 import 'package:agemate/views/result.dart';
 import 'package:flutter/material.dart';
-import '../constant/color.dart';
 import '../controller/age_calculator.dart';
-class HomePage extends StatefulWidget {
-  const HomePage({ super.key });
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({ super.key });
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,6 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(),
@@ -63,12 +61,12 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       hintText: getFormatedDate(selectedBrithDate),
-                      hintStyle: TextStyle(color: textColor),
-                      border: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                        borderSide: BorderSide(width: 2.0, color: primaryColor),
+                      hintStyle: const TextStyle(color: Colors.black),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                        borderSide: BorderSide(width: 2.0, color: Colors.black),
                       ),
-                      suffixIcon: Icon(Icons.calendar_today, color: textColor,)
+                      suffixIcon: const Icon(Icons.calendar_today, color: Colors.black,)
                   ),
                 ),
               ),
@@ -89,12 +87,12 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       hintText: getFormatedDate(selectedCurrentDate),
-                      hintStyle: TextStyle(color: textColor),
-                      border: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                        borderSide: BorderSide(width: 2.0, color: primaryColor),
+                      hintStyle: const TextStyle(color: Colors.black),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                        borderSide: BorderSide(width: 2.0, color: Colors.black),
                       ),
-                      suffixIcon: Icon(Icons.calendar_today, color: textColor,)
+                      suffixIcon: const Icon(Icons.calendar_today, color: Colors.black,)
                   ),
                 ),
               ),
@@ -106,7 +104,7 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 onPressed: (){
-                  Route route = MaterialPageRoute(builder: (context)=>const ResultPage());
+                  Route route = MaterialPageRoute(builder: (context)=>const ResultScreen());
                   Navigator.push(context, route);
                 },
                 style: ButtonStyle(

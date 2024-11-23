@@ -29,106 +29,124 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Spacer(),
-            Image.asset('images/age.jpg'),
-            const Text(
-              'Discover exactly how old you are and how many days there are until your next birthday.',
-              style: TextStyle(
-                fontSize: 18,
-                height: 1.5,
-                fontWeight: FontWeight.w400,
-                color: Colors.blueAccent,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20), // Add padding at the top if needed
+              Image.asset(
+                'images/age.jpg',
+                width: double.infinity, // Adjust image width to fit screen
+                height: 200, // Specify a height or make it dynamic
+                fit: BoxFit.cover,
               ),
-            ),
-            const Spacer(),
-            const Text(
-              'Select date of birth',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF025eff),
+              const SizedBox(height: 0), // Space between widgets
+              const Text(
+                'Discover exactly how old you are and how many days there are until your next birthday.',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.blueAccent,
+                ),
               ),
-            ),
-            const SizedBox(height: 10,),
-            InkWell(
-              onTap: ()=> _selectDate(context, selectedBrithDate, "BirthDate" ),
-              child: IgnorePointer(
-                child: TextFormField(
-                  decoration: InputDecoration(
+              const SizedBox(height: 20),
+              const Text(
+                'Select date of birth',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF025eff),
+                ),
+              ),
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () => _selectDate(context, selectedBrithDate, "BirthDate"),
+                child: IgnorePointer(
+                  child: TextFormField(
+                    decoration: InputDecoration(
                       hintText: getFormatedDate(selectedBrithDate),
                       hintStyle: const TextStyle(color: Colors.black),
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         borderSide: BorderSide(width: 2.0, color: Colors.black),
                       ),
-                      suffixIcon: const Icon(Icons.calendar_today, color: Colors.black,)
+                      suffixIcon: const Icon(
+                        Icons.calendar_today,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10,),
-            const Text(
-              'Select today\'s date',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF025eff),
+              const SizedBox(height: 20),
+              const Text(
+                'Select today\'s date',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF025eff),
+                ),
               ),
-            ),
-            const SizedBox(height: 10,),
-            InkWell(
-              onTap: ()=> _selectDate(context, selectedCurrentDate, "CurrentDate"),
-              child: IgnorePointer(
-                child: TextFormField(
-                  decoration: InputDecoration(
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () => _selectDate(context, selectedCurrentDate, "CurrentDate"),
+                child: IgnorePointer(
+                  child: TextFormField(
+                    decoration: InputDecoration(
                       hintText: getFormatedDate(selectedCurrentDate),
                       hintStyle: const TextStyle(color: Colors.black),
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         borderSide: BorderSide(width: 2.0, color: Colors.black),
                       ),
-                      suffixIcon: const Icon(Icons.calendar_today, color: Colors.black,)
+                      suffixIcon: const Icon(
+                        Icons.calendar_today,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              height: 56,
-              width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                onPressed: (){
-                  Route route = MaterialPageRoute(builder: (context)=>const ResultScreen());
-                  Navigator.push(context, route);
-                },
-                style: ButtonStyle(
-                    backgroundColor:  WidgetStateProperty.all<Color>(const Color(0xFF025eff),),
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        )
-                    )
-                ),
-                child: const Text(
-                  'Calculate',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 56,
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                      builder: (context) => const ResultScreen(),
+                    );
+                    Navigator.push(context, route);
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color(0xFF025eff),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    'Calculate',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const Spacer(),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
+
     );
   }
 

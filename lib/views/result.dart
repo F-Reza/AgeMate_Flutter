@@ -71,7 +71,6 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -246,7 +245,7 @@ class _ResultScreenState extends State<ResultScreen> {
             Stack(
               children: [
                 Container(
-                  height: 200,
+                  height: 220,
                   width: MediaQuery.of(context).size.width,
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
